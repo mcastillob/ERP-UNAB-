@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+   
+    <class name="unab.erp.core.rrhh.model.Persona" table="PERSONAS">
+    <id column="ID" name="id" type="integer">
+      <generator class="increment"/>
+    </id>
+    <property column="NOMBRE"       name="nombre"        type="string"/>
+    <property column="APELLIDO_PAT" name="apellido_pat" type="string"/>
+    <property column="APELLIDO_MAT" name="apellido_mat" type="string"/>
+    <property column="RUT"          name="rut"           type="integer"/>
+    <property column="DV"           name="dv"            type="string"/>
+  </class>  
+    
+   
+  
+</hibernate-mapping>
