@@ -5,8 +5,6 @@
         <group>
             <file>file:/C:/Users/mcastillo/Documents/unab/unab-erp-core-rrhh/src/unab/erp/core/rrhh/mapping/Direccion.hbm.xml</file>
             <file>file:/C:/Users/mcastillo/Documents/unab/unab-erp-core-rrhh/src/unab/erp/core/rrhh/model/Direccion.java</file>
-            <file>file:/C:/Users/mcastillo/Documents/unab/unab-erp-core-rrhh/src/unab/erp/core/rrhh/model/Persona.java</file>
-            <file>file:/C:/Users/mcastillo/Documents/unab/unab-erp-core-rrhh/src/unab/erp/core/rrhh/mapping/Persona.hbm.xml</file>
         </group>
     </open-files>
 </project-private>
