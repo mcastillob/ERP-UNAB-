@@ -21,11 +21,13 @@ public class inicio {
     }
  
     public static void main(String[] args){
-    //inicio la fabrica de sesiones que se conectan a una base de datos embebida 
+   //inicio la fabrica de sesiones que se conectan a una base de datos embebida 
     Session session=  HibernateUtil.getSessionFactory().openSession();
     try{
         //se inicia una transaccion para asegurara la grabación 
        session.beginTransaction();
+       
+
        
        //se crea un objeto persona con sus datos correspondientes 
         Persona objPersona=new Persona();
@@ -34,23 +36,49 @@ public class inicio {
         objPersona.Nombre="Miguel";
         objPersona.Apellido_pat="Castillo";
         objPersona.Apellido_mat="Berrios";
-       
-       
+
+                  
         //se realiza la grabación del objeto persona en la base de datos 
         session.save(objPersona);
+   
+        //se agrega la primera direccion 
+        Direccion objDireccion=new Direccion();        
+        objDireccion.calle    ="amunategui";
+        objDireccion.numero   =695;
+        objDireccion.setPersona(objPersona);
+        session.save(objDireccion);
+        
+        //se agrega la segunda direccion 
+        Direccion objDireccion2=new Direccion();        
+        objDireccion2.calle    ="agustinas";
+        objDireccion2.numero   =1419;
+        objDireccion2.setPersona(objPersona);
+        session.save(objDireccion2);
         
         //confirma la grabación 
         session.getTransaction().commit();
                 
         
         
-      Query qry_persona= session.createQuery("from Persona");
-   
-       List<Persona> list_personas=qry_persona.list();
+      Query qry_persona= session.createQuery("select p from Persona p left join fetch p.direcciones");   
+      List<Persona> list_personas=qry_persona.list();
        
+       
+
+        System.out.println("PERSONAS REGISTRADAS");
        for(Persona objpersonaActual : list_personas){
        
-           System.out.println("ID: "+objpersonaActual.getId()+" "+objpersonaActual.getNombre()+" "+objpersonaActual.getApellido_pat()+" "+objpersonaActual.getApellido_mat());
+           System.out.println("ID: "+objpersonaActual.getPersona_id()+" "+objpersonaActual.getNombre()+" "+objpersonaActual.getApellido_pat()+" "+objpersonaActual.getApellido_mat());
+          
+           if(objpersonaActual.getDirecciones()!=null){                                 
+           for(Direccion objDir : objpersonaActual.getDirecciones()){
+       
+             System.out.println("DIRECCION: "+objDir.getCalle()+" NUMERO:"+objDir.getNumero());
+             
+           }
+           }
+          
+           
        }
     
     }catch(Exception error){
@@ -63,8 +91,6 @@ public class inicio {
     }
  
    
-    
-    
     
     }
     
