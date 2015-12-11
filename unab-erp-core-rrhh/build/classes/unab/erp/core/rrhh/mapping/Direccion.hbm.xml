@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+   
+    <class name="unab.erp.core.rrhh.model.Direccion" table="DIRECCION">
+    <id column="DIRECCION_ID" name="direccion_id" type="integer">
+   <generator class="native"/>
+    </id>
+    <property    column="CALLE"        name="calle"        type="string"/>
+    <property    column="NUMERO"       name="numero"       type="integer"/>
+    <many-to-one column="PERSONA_ID"   name="persona"      not-null="true"/>
+  </class>  
+    
+   
+  
+</hibernate-mapping>
