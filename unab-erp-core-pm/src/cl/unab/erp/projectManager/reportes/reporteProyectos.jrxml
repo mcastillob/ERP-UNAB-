@@ -1,0 +1,200 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="reporteProyectos" language="groovy" pageWidth="595" pageHeight="842" columnWidth="535" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="4b3703c6-9d64-477a-85da-4e4283e1f172">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="96"/>
+	<parameter name="nombre" class="java.lang.String"/>
+	<parameter name="cliente" class="java.lang.String"/>
+	<parameter name="fechaInicio" class="java.lang.String"/>
+	<parameter name="jp" class="java.lang.String"/>
+	<parameter name="empleado" class="java.lang.String"/>
+	<variable name="nombre_1" class="java.lang.Integer" resetType="Group" resetGroup="Group1" calculation="Count">
+		<variableExpression><![CDATA[]]></variableExpression>
+	</variable>
+	<variable name="cliente_1" class="java.lang.Integer" resetType="Group" resetGroup="Group1" calculation="Count">
+		<variableExpression><![CDATA[]]></variableExpression>
+	</variable>
+	<group name="Group1">
+		<groupHeader>
+			<band height="33">
+				<staticText>
+					<reportElement mode="Opaque" x="0" y="0" width="100" height="32" forecolor="#666666" backcolor="#E6E6E6" uuid="c812822c-4d5f-4ec6-b892-d3f0307250de"/>
+					<textElement>
+						<font size="12" isBold="true"/>
+					</textElement>
+					<text><![CDATA[Nombre Proyecto:]]></text>
+				</staticText>
+				<line>
+					<reportElement x="-20" y="32" width="595" height="1" forecolor="#666666" uuid="821a7509-1cbf-460a-8691-c68c7c50ea5b"/>
+				</line>
+				<textField>
+					<reportElement x="100" y="0" width="336" height="32" uuid="501c0929-81cc-483e-b0f9-02f8eac73232"/>
+					<textFieldExpression><![CDATA[$P{nombre}]]></textFieldExpression>
+				</textField>
+			</band>
+		</groupHeader>
+		<groupFooter>
+			<band/>
+		</groupFooter>
+	</group>
+	<group name="Group2">
+		<groupHeader>
+			<band height="25">
+				<staticText>
+					<reportElement x="0" y="0" width="100" height="20" forecolor="#666666" uuid="83844db9-6e2d-46df-97f0-11b7da480b86"/>
+					<textElement>
+						<font size="12" isBold="true"/>
+					</textElement>
+					<text><![CDATA[Cliente]]></text>
+				</staticText>
+				<textField>
+					<reportElement x="100" y="0" width="320" height="20" uuid="c3ed3f43-ef73-45a1-b4fc-45d297d1597f"/>
+					<textFieldExpression><![CDATA[$P{cliente}]]></textFieldExpression>
+				</textField>
+			</band>
+		</groupHeader>
+		<groupFooter>
+			<band/>
+		</groupFooter>
+	</group>
+	<group name="Group3">
+		<groupHeader>
+			<band height="22">
+				<staticText>
+					<reportElement x="0" y="0" width="100" height="20" forecolor="#666666" uuid="787c8e61-e370-4a60-b0b3-4cd8a964fb53"/>
+					<textElement>
+						<font size="12" isBold="true"/>
+					</textElement>
+					<text><![CDATA[Fecha Inicio]]></text>
+				</staticText>
+				<textField>
+					<reportElement x="100" y="0" width="170" height="20" uuid="c7144b02-872c-4f4d-87c1-0ce83fe4cc01"/>
+					<textFieldExpression><![CDATA[$P{fechaInicio}]]></textFieldExpression>
+				</textField>
+			</band>
+		</groupHeader>
+		<groupFooter>
+			<band/>
+		</groupFooter>
+	</group>
+	<group name="Group4">
+		<groupHeader>
+			<band height="41">
+				<staticText>
+					<reportElement x="0" y="0" width="131" height="20" forecolor="#666666" uuid="989c5578-0901-4c0d-bc03-7f7a2be20321"/>
+					<textElement>
+						<font size="12" isBold="true"/>
+					</textElement>
+					<text><![CDATA[Empleados Asignados]]></text>
+				</staticText>
+				<textField>
+					<reportElement x="134" y="0" width="418" height="20" uuid="8ca1c92d-20f7-4bb3-953c-fe2f38ec3a9b"/>
+					<textFieldExpression><![CDATA[$P{jp}]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement x="134" y="20" width="418" height="20" uuid="4d93d102-5e90-4b90-92c8-854b1df66c3c"/>
+					<textFieldExpression><![CDATA[$P{empleado}]]></textFieldExpression>
+				</textField>
+			</band>
+		</groupHeader>
+		<groupFooter>
+			<band/>
+		</groupFooter>
+	</group>
+	<background>
+		<band/>
+	</background>
+	<title>
+		<band height="72">
+			<frame>
+				<reportElement mode="Opaque" x="-20" y="-20" width="595" height="92" backcolor="#006699" uuid="20e5a9b7-6064-4547-81b0-2feec3ee185a"/>
+				<staticText>
+					<reportElement x="20" y="20" width="234" height="43" forecolor="#FFFFFF" uuid="9be89017-574a-4697-b35d-f06d345fe0ea"/>
+					<textElement>
+						<font size="34" isBold="true"/>
+					</textElement>
+					<text><![CDATA[PROYECTO]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="395" y="43" width="45" height="20" forecolor="#FFFFFF" uuid="ae78bbb2-e694-40f7-af67-5b3ae832a86d"/>
+					<textElement textAlignment="Left">
+						<font size="14" isBold="true"/>
+					</textElement>
+					<text><![CDATA[Fecha:]]></text>
+				</staticText>
+				<textField pattern="EEEEE dd MMMMM yyyy">
+					<reportElement x="440" y="43" width="132" height="20" forecolor="#FFFFFF" uuid="61283683-44b1-4ba1-82f0-505ce6f1cd50"/>
+					<textElement>
+						<font size="13" isBold="true"/>
+					</textElement>
+					<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+				</textField>
+			</frame>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="13"/>
+	</pageHeader>
+	<columnHeader>
+		<band height="21">
+			<staticText>
+				<reportElement mode="Opaque" x="0" y="0" width="183" height="20" forecolor="#006699" backcolor="#E6E6E6" uuid="19dd0128-3e60-46f5-adb5-43c9c6a2afce"/>
+				<textElement textAlignment="Center">
+					<font size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Descripción del Proyecto]]></text>
+			</staticText>
+			<line>
+				<reportElement x="-20" y="20" width="595" height="1" forecolor="#666666" uuid="12731731-3946-427c-8149-d7a2f95f7c6d"/>
+			</line>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="337">
+			<line>
+				<reportElement positionType="FixRelativeToBottom" x="0" y="19" width="555" height="1" uuid="4f6dc3e8-b682-4590-afdf-dec929e1cda0"/>
+			</line>
+			<staticText>
+				<reportElement x="0" y="0" width="158" height="20" uuid="41e7e078-a91a-402a-ba31-8d18e58532d6"/>
+				<textElement>
+					<font size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Descripción Proyecto]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="35" width="552" height="287" uuid="4975560f-ac2d-4c14-afbd-1eb503a71022"/>
+				<textElement>
+					<font size="13" isBold="true"/>
+				</textElement>
+				<text><![CDATA[En este proyecto se plantea el estudio de material sobre los principios de educación en ciencia de la
+computación y su aplicación a la introducción de la informática en la enseñanza media, de modo de
+dirigir las discusiones con los potenciales usuarios del sistema hacia el cumplimiento de dichos
+principios. Esto significa, entre otros, fundamentar la conveniencia de que el producto favorezca el
+aprendizaje de la algoritmia y la resolución de pequeños problemas de programación. Las
+características del prototipo se definen en la interacción con profesores de matemática y/o informática
+de la enseñanza media y se construye un diseño a ser implementado. En una segunda etapa del
+proyecto se implementa el prototipo y se realizan pruebas por parte de profesores y alumnos de la
+enseñanza media.]]></text>
+			</staticText>
+		</band>
+	</detail>
+	<columnFooter>
+		<band/>
+	</columnFooter>
+	<pageFooter>
+		<band height="21">
+			<textField>
+				<reportElement mode="Opaque" x="-4" y="0" width="515" height="13" backcolor="#E6E6E6" uuid="38271e9a-cf01-432b-ae7b-5d9da3f644f8"/>
+				<textElement textAlignment="Right"/>
+				<textFieldExpression><![CDATA["Page "+$V{PAGE_NUMBER}+" of"]]></textFieldExpression>
+			</textField>
+			<textField evaluationTime="Report">
+				<reportElement mode="Opaque" x="511" y="0" width="40" height="13" backcolor="#E6E6E6" uuid="1c8ca0d6-8054-49d9-96da-c19bdcb76cea"/>
+				<textFieldExpression><![CDATA[" " + $V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageFooter>
+	<summary>
+		<band/>
+	</summary>
+</jasperReport>

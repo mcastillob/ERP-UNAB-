@@ -6,6 +6,7 @@
 package unab.erp.core.rrhh.model;
 
 
+import java.util.Date;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -15,12 +16,16 @@ import java.util.Set;
  */
 public class Persona {
     
-    public int    Persona_id;
-    public String Nombre;
-    public String Apellido_pat;
-    public String Apellido_mat;
-    public int    Rut;
-    public Set<Direccion> direcciones = new HashSet();
+    public int    persona_id;
+    public String nombre;
+    public String apellidoPat;
+    public String apellidoMat;
+    public String rut;
+    public Date   fechaNacimiento;
+    public Date   fechaIngreso;
+    public String correo;
+    
+    /*public Set<Direccion> direcciones = new HashSet();
     
     public void setDirecciones(Set<Direccion> direcciones) {
         this.direcciones = direcciones;
@@ -28,63 +33,80 @@ public class Persona {
 
     public Set<Direccion> getDirecciones() {
         return this.direcciones;
-    }
+    }*/
     
     public Persona(){
     
     }
-    
 
-
-    public String getNombre() {
-        return this.Nombre;
+    public void setPersona_id(int persona_id) {
+        this.persona_id = persona_id;
     }
 
-    public String getApellido_pat() {
-        return this.Apellido_pat;
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
     }
 
-    public String getApellido_mat() {
-        return this.Apellido_mat;
+    public void setApellidoPat(String apellidoPat) {
+        this.apellidoPat = apellidoPat;
     }
 
-    public int getRut() {
-        return this.Rut;
+    public void setApellidoMat(String apellidoMat) {
+        this.apellidoMat = apellidoMat;
     }
 
-    public String getDv() {
-        return this.Dv;
+    public void setRut(String rut) {
+        this.rut = rut;
+    }
+
+    public void setFechaNacimiento(Date fechaNacimiento) {
+        this.fechaNacimiento = fechaNacimiento;
+    }
+
+    public void setFechaIngreso(Date fechaIngreso) {
+        this.fechaIngreso = fechaIngreso;
+    }
+
+    public void setCorreo(String correo) {
+        this.correo = correo;
     }
 
     public int getPersona_id() {
-        return this.Persona_id;
+        return persona_id;
     }
 
-    public void setPersona_id(int Persona_id) {
-        this.Persona_id = Persona_id;
+    public String getNombre() {
+        return nombre;
     }
 
-
-    public void setNombre(String Nombre) {
-        this.Nombre = Nombre;
+    public String getApellidoPat() {
+        return apellidoPat;
     }
 
-    public void setApellido_pat(String Apellido_pat) {
-        this.Apellido_pat = Apellido_pat;
+    public String getApellidoMat() {
+        return apellidoMat;
     }
 
-    public void setApellido_mat(String Apellido_mat) {
-        this.Apellido_mat = Apellido_mat;
+    public String getRut() {
+        return rut;
     }
 
-    public void setRut(int Rut) {
-        this.Rut = Rut;
+    public Date getFechaNacimiento() {
+        return fechaNacimiento;
     }
 
-    public void setDv(String Dv) {
-        this.Dv = Dv;
+    public Date getFechaIngreso() {
+        return fechaIngreso;
     }
-    public String Dv;
+
+    public String getCorreo() {
+        return correo;
+    }
+    
+
+
+  
+
  
     
 }

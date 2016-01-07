@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+   
+    <class name="unab.erp.core.rrhh.model.Liquidacion" table="LIQUIDACIONES">
+    <id column="LIQUIDACION_ID" name="liquidacion_id" type="integer">
+   <generator class="native"/>
+    </id>
+    <property    column="PERIODO"              name="periodo"          type="string"/>
+    <property    column="FECHA_INGRESO"        name="fechaIngreso"     type="java.util.Date"/>
+    <property    column="SUELDO_BRUTO"         name="sueldoBruto"      type="float"/>
+    <property    column="TOTAL_DESCUENTO"      name="totalDescuneto"   type="float"/>
+    <property    column="SUELDO_LIQUIDO"       name="sueldoLiquido"    type="float"/>
+
+     <set name="descuentos" table="DESCUENTOS" >
+        <key column="LIQUIDACION_ID"/>
+        <one-to-many  class="unab.erp.core.rrhh.model.Descuento"/>
+     </set>
+    
+
+  </class>  
+    
+   
+  
+</hibernate-mapping>
