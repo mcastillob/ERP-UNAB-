@@ -12,7 +12,7 @@ import cl.unab.erp.projectManager.controller.RecursosController;
 import cl.unab.erp.projectManager.controller.ReportesController;
 import cl.unab.erp.projectManager.model.Actividad;
 import cl.unab.erp.projectManager.model.Cliente;
-import cl.unab.erp.projectManager.model.Empleado;
+//import cl.unab.erp.projectManager.model.Empleado;
 import cl.unab.erp.projectManager.model.Proyecto;
 import cl.unab.erp.projectManager.util.ActividadUtils;
 import cl.unab.erp.projectManager.util.CargoUtils;
@@ -23,6 +23,9 @@ import cl.unab.erp.projectManager.util.ProyectoUtils;
 import cl.unab.erp.projectManager.util.TableManagerUtil;
 import javax.swing.JFileChooser;
 import javax.swing.JOptionPane;
+import unab.erp.core.rrhh.model.Empleado;
+import unab.erp.core.rrhh.dao.EmpleadoDao;
+
 
 /**
  *
@@ -945,8 +948,16 @@ jButtonPDFProject.setEnabled(false);
         if (JOptionPane.showConfirmDialog(null, "Seguro que quiere eliminar este registro?", "WARNING",
                 JOptionPane.YES_NO_OPTION) == JOptionPane.YES_OPTION) {
             String idRecurso = jTextRutRecurso.getText();
-            recursosController.delete(idRecurso);
-             this.reLoad();
+            
+             EmpleadoDao empDao=new EmpleadoDao();     
+             
+             empDao.openCurrentSession();             
+             Empleado emp = empDao.findByRut(idRecurso);
+             empDao.closeCurrentSession();
+             recursosController.delete(emp.getPersona_id());
+            
+            
+            this.reLoad();
             this.cleanFieldRecursos();
             jButtonEditRecursos.setEnabled(false);
             jButtonDeleteRecurso.setEnabled(false);
@@ -956,8 +967,30 @@ jButtonPDFProject.setEnabled(false);
 
     private void jButtonEditRecursosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonEditRecursosActionPerformed
         String idRecurso = jTextRutRecurso.getText();
-        Empleado emp = new Empleado(idRecurso, jTextNombreRecursos.getText(), jTextApellidosRecursos.getText(), jTextDireccionRecursos.getText(), jTextEmailRecursos.getText(), jTextFonoRecursos.getText(), CargoUtils.cargos.get(jComboCargoRecursos.getSelectedIndex()));
-        recursosController.edit(emp);
+        
+//        Empleado emp = new Empleado(idRecurso,
+//                jTextNombreRecursos.getText(), 
+//                jTextApellidosRecursos.getText(), 
+//                jTextDireccionRecursos.getText(),
+//                jTextEmailRecursos.getText(), 
+//                jTextFonoRecursos.getText(),
+//                CargoUtils.cargos.get(jComboCargoRecursos.getSelectedIndex()));
+        
+          
+           EmpleadoDao empDao=new EmpleadoDao();
+           
+           Empleado emp = empDao.findByRut(idRecurso);
+        
+       if(emp!=null){
+           emp.setRut(idRecurso);
+           emp.setNombre(jTextNombreRecursos.getText());
+           emp.setApellidoPat(jTextApellidosRecursos.getText());
+           emp.setDireccion(jTextDireccionRecursos.getText());
+           emp.setCorreo(jTextEmailRecursos.getText());
+           emp.setFono(jTextFonoRecursos.getText());
+           recursosController.edit(emp);
+       }
+           
         this.reLoad();
         this.cleanFieldRecursos();
         jButtonEditRecursos.setEnabled(false);
@@ -968,7 +1001,15 @@ jButtonPDFProject.setEnabled(false);
 
     private void jButtonGuardarRecursosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonGuardarRecursosActionPerformed
         if (this.validateFieldRecursos()) {
-            Empleado emp = new Empleado(jTextRutRecurso.getText(), jTextNombreRecursos.getText(), jTextApellidosRecursos.getText(), jTextDireccionRecursos.getText(), jTextEmailRecursos.getText(), jTextFonoRecursos.getText(), CargoUtils.cargos.get(jComboCargoRecursos.getSelectedIndex()));
+          //  Empleado emp = new Empleado(jTextRutRecurso.getText(), jTextNombreRecursos.getText(), jTextApellidosRecursos.getText(), jTextDireccionRecursos.getText(), jTextEmailRecursos.getText(), jTextFonoRecursos.getText(), CargoUtils.cargos.get(jComboCargoRecursos.getSelectedIndex()));
+            
+           Empleado emp = new Empleado();
+           emp.setRut(jTextRutRecurso.getText());
+           emp.setNombre(jTextNombreRecursos.getText());
+           emp.setApellidoPat(jTextApellidosRecursos.getText());
+           emp.setDireccion(jTextDireccionRecursos.getText());
+           emp.setCorreo(jTextEmailRecursos.getText());
+           emp.setFono(jTextFonoRecursos.getText());
             recursosController.save(emp);
              this.reLoad();
             this.cleanFieldRecursos();

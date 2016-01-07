@@ -6,38 +6,43 @@
 package cl.unab.erp.projectManager.controller;
 
 import cl.unab.erp.projectManager.dao.RecursosDao;
-import cl.unab.erp.projectManager.model.Empleado;
-import cl.unab.erp.projectManager.util.EmpleadoUtils;
-
+//import cl.unab.erp.projectManager.model.Empleado;
+//import cl.unab.erp.projectManager.util.EmpleadoUtils;
+import unab.erp.core.rrhh.model.Empleado;
+import unab.erp.core.rrhh.dao.EmpleadoDao;
+import org.hibernate.*;
 /**
  *
  * @author Miguel
  */
 public class RecursosController implements RecursosDao{
 
-    @Override
-    public void save(Empleado empleado) {
-        EmpleadoUtils.empleados.add(empleado);
+    
+ 
+    public void save(Empleado empleado)  {
+        EmpleadoDao empleadoDao=new EmpleadoDao();
+        empleadoDao.openCurrentSessionwithTransaction();
+        empleadoDao.save(empleado);
+        empleadoDao.closeCurrentSessionwithTransaction();
     }
 
     @Override
     public void edit(Empleado empleado) {
-        for (int i = 0; i < EmpleadoUtils.empleados.size(); i++) {
-            if (EmpleadoUtils.empleados.get(i).getRut().equals(empleado.getRut())) {
-                EmpleadoUtils.empleados.set(i, empleado);
-                return;
-            }
-        }
+        
+        EmpleadoDao empleadoDao=new EmpleadoDao();
+        empleadoDao.openCurrentSessionwithTransaction();
+        empleadoDao.update(empleado);
+        empleadoDao.closeCurrentSessionwithTransaction();
+        
     }
 
     @Override
-    public void delete(String idEmpleado) {
-       for (int i = 0; i < EmpleadoUtils.empleados.size(); i++) {
-           if (EmpleadoUtils.empleados.get(i).getRut().equals(idEmpleado)) {
-                EmpleadoUtils.empleados.remove(i);
-                return;
-            }
-        }
+    public void delete(int idEmpleado) {
+   
+        EmpleadoDao empleadoDao=new EmpleadoDao();
+        empleadoDao.openCurrentSessionwithTransaction();
+        empleadoDao.delete(empleadoDao.findById(idEmpleado));
+        empleadoDao.closeCurrentSessionwithTransaction();
     }
     
 }

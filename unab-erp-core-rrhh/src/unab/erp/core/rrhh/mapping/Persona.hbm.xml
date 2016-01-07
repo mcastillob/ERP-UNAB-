@@ -20,6 +20,8 @@
     <property column="APELLIDO_MAT"       name="apellidoMat"       type="string"/>
     <property column="RUT"                name="rut"               type="string"/>
     <property column="CORREO"             name="correo"            type="string"/>
+    <property column="DIRECCION"          name="direccion"         type="string"/>
+    <property column="FONO"               name="fono"              type="string"/>
     <property column="FECHA_NACIMIENTO"   name="fechaNacimiento"   type="java.util.Date"/>
     <property column="FECHA_INGRESO"      name="fechaIngreso"      type="java.util.Date"/>
     

@@ -15,6 +15,7 @@ public class Empleado extends Persona{
    
     public Empleado(String rut, String nombres, String apellidos, String direccion, String email, String fono,Cargo cargo) {
         super(rut, nombres, apellidos, direccion, email, fono);
+       
         this.cargo=cargo;
     }
 
