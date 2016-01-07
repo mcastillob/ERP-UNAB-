@@ -17,6 +17,18 @@ public class Jornada {
     public int totalHH;
     public Set<DiaTrabajado> dias = new HashSet();
 
+    public Set<DiaTrabajado> getDias() {
+        return dias;
+    }
+
+    public void setDias(Set<DiaTrabajado> dias) {
+        this.dias = dias;
+    }
+
+    
+    
+    
+    
     public int getJornada_id() {
         return jornada_id;
     }

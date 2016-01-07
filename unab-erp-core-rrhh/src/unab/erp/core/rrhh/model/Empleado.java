@@ -25,6 +25,19 @@ public class Empleado extends Persona{
         public Set<Liquidacion> liquidaciones = new HashSet();
         public Set<Jornada>  horasSolicitadas = new HashSet();
 
+    public void setSolicitudes(Set<Solicitud> solicitudes) {
+        this.solicitudes = solicitudes;
+    }
+
+    public Set<Solicitud> getSolicitudes() {
+        return solicitudes;
+    }
+        
+        
+        
+        
+        
+
     public void setCargo(Cargo cargo) {
         this.cargo = cargo;
     }

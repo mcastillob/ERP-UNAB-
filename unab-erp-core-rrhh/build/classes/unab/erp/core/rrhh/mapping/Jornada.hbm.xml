@@ -8,6 +8,10 @@
     </id>
     <property    column="TOTAL_HH"        name="totalHH"        type="integer"/>
   
+      <set name="dias" table="DIASTRABAJADOS" >
+        <key column="JORNADA_ID"/>
+        <one-to-many  class="unab.erp.core.rrhh.model.DiaTrabajado"/>
+        </set>
 
   </class>  
     

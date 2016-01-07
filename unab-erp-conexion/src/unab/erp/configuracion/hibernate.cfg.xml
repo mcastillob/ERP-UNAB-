@@ -12,6 +12,11 @@
     <mapping resource="unab/erp/core/rrhh/mapping/Persona.hbm.xml"/>
     <mapping resource="unab/erp/core/rrhh/mapping/Cargo.hbm.xml"/>
     <mapping resource="unab/erp/core/rrhh/mapping/Jornada.hbm.xml"/>
+    <mapping resource="unab/erp/core/rrhh/mapping/DiaTrabajado.hbm.xml"/>
+    <mapping resource="unab/erp/core/rrhh/mapping/Descuento.hbm.xml"/>
+    <mapping resource="unab/erp/core/rrhh/mapping/Liquidacion.hbm.xml"/>
+    
+    
     
     
   

@@ -9,6 +9,7 @@
  * @author miguelcastillo
  */
 
+import java.util.Date;
 import unab.erp.configuracion.HibernateUtil;
 import java.util.List;
 import org.hibernate.*;
@@ -28,7 +29,7 @@ public class inicio {
        session.beginTransaction();
        
 
-       
+       /*
        //se crea un objeto persona con sus datos correspondientes 
         Persona objPersona=new Persona();
         objPersona.rut="16122203-8";
@@ -40,8 +41,25 @@ public class inicio {
 
                   
         //se realiza la grabación del objeto persona en la base de datos 
-        session.save(objPersona);
+        session.save(objPersona); 
+       
+       */
    
+        Usuario obj_usuario=new Usuario();
+        obj_usuario.rut="16122203-9";
+        obj_usuario.nombre="Miguel berrios";
+        obj_usuario.apellidoPat="Castillo";
+        obj_usuario.apellidoMat="Berrios";
+        obj_usuario.correo="mcastillo.berrios@gmail.com";
+        obj_usuario.setClave("123456");
+        obj_usuario.setFechaIngreso(new Date());
+        obj_usuario.setFechaNacimiento(new Date(2015,04,22));
+        
+        session.save(obj_usuario);
+        
+        
+        
+        
         
         /*
         //se agrega la primera direccion 

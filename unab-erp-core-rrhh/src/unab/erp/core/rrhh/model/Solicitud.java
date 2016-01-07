@@ -14,4 +14,30 @@ public class Solicitud extends DiaTrabajado{
     public int    solicitud_id;
     public String tipoSolicitud;
     public String tipoEstado;
+
+    public void setSolicitud_id(int solicitud_id) {
+        this.solicitud_id = solicitud_id;
+    }
+
+    public void setTipoSolicitud(String tipoSolicitud) {
+        this.tipoSolicitud = tipoSolicitud;
+    }
+
+    public void setTipoEstado(String tipoEstado) {
+        this.tipoEstado = tipoEstado;
+    }
+
+    public int getSolicitud_id() {
+        return solicitud_id;
+    }
+
+    public String getTipoSolicitud() {
+        return tipoSolicitud;
+    }
+
+    public String getTipoEstado() {
+        return tipoEstado;
+    }
+    
+    
 }

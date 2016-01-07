@@ -2,12 +2,12 @@
 <!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
 <hibernate-mapping>
    
-    <class name="unab.erp.core.rrhh.model.Cargo" table="CARGOS">
-    <id column="CARGO_ID" name="cargo_id" type="integer">
+    <class name="unab.erp.core.rrhh.model.Descuento" table="DESCUENTOS">
+    <id column="DESCUENTO_ID" name="descuento_id" type="integer">
    <generator class="native"/>
     </id>
     <property    column="NOMBRE"        name="nombre"        type="string"/>
-    <property    column="DESCRIPCION"        name="descripcion"        type="string"/>
+    <property    column="VALOR"         name="valor"         type="float"/>
 
   </class>  
     

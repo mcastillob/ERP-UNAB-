@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+   
+    <class name="unab.erp.core.rrhh.model.DiaTrabajado" table="DIASTRABAJADOS">
+    <id column="DIATRABAJADO_ID" name="diatrabajado_id" type="integer">
+   <generator class="native"/>
+    </id>
+       <property    column="HORA_INICIO"        name="hora_inicio"        type="string"/>
+       <property    column="HORA_TERMINO"       name="hora_termino"       type="string"/>
+       <property    column="DIA"                name="dia"                type="java.util.Date"/>
+  </class>  
+   
+    
+  <joined-subclass name="unab.erp.core.rrhh.model.Solicitud" table="SOLICITUDES" extends="unab.erp.core.rrhh.model.DiaTrabajado">
+       <key column="DIATRABAJADO_ID" />
+       <property    column="TIPO_SOLICITUD"     name="tipoSolicitud"    type="string"/>
+       <property    column="TIPO_ESTADO"        name="tipoEstado"       type="string"/>
+            
+  </joined-subclass>
+  
+  
+</hibernate-mapping>
