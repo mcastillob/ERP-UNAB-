@@ -8,18 +8,41 @@
       <generator class="native"/>
     </id>
     
- 
+ <!--
     <set name="direcciones" table="DIRECCION" >
         <key column="PERSONA_ID"/>
         <one-to-many  class="unab.erp.core.rrhh.model.Direccion"/>
     </set>
-
+-->
          
-    <property column="NOMBRE"       name="nombre"        type="string"/>
-    <property column="APELLIDO_PAT" name="apellido_pat" type="string"/>
-    <property column="APELLIDO_MAT" name="apellido_mat" type="string"/>
-    <property column="RUT"          name="rut"           type="integer"/>
-    <property column="DV"           name="dv"            type="string"/>
+    <property column="NOMBRE"             name="nombre"            type="string"/>
+    <property column="APELLIDO_PAT"       name="apellidoPat"       type="string"/>
+    <property column="APELLIDO_MAT"       name="apellidoMat"       type="string"/>
+    <property column="RUT"                name="rut"               type="string"/>
+    <property column="CORREO"             name="correo"            type="string"/>
+    <property column="FECHA_NACIMIENTO"   name="fechaNacimiento"   type="java.util.Date"/>
+    <property column="FECHA_INGRESO"      name="fechaIngreso"      type="java.util.Date"/>
+    
+    
+    <joined-subclass name="unab.erp.core.rrhh.model.Usuario" extends="unab.erp.core.rrhh.model.Persona">
+       <key column="PERSONA_ID" />
+       <property    column="CLAVE"        name="clave"        type="string"/>
+    </joined-subclass>
+    
+    
+    <joined-subclass name="unab.erp.core.rrhh.model.Empleado" extends="unab.erp.core.rrhh.model.Persona">
+       <key column="EMPLEADO_ID" />
+       <property    column="FECHA_INGRESO"        name="fechaIngreso"        type="java.util.Date"/>
+       <property    column="HH_CONTRATADAS"       name="hhContratadas"       type="integer"/>
+       <many-to-one name="cargo" class="unab.erp.core.rrhh.model.Cargo" column="CARGO_ID" unique="true"/>
+     
+        <set name="horasSolicitadas" table="JORNADAS" >
+        <key column="EMPLEADO_ID"/>
+        <one-to-many  class="unab.erp.core.rrhh.model.Jornada"/>
+        </set>
+       
+    </joined-subclass>
+
   </class>  
     
    

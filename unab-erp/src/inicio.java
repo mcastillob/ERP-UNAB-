@@ -31,16 +31,19 @@ public class inicio {
        
        //se crea un objeto persona con sus datos correspondientes 
         Persona objPersona=new Persona();
-        objPersona.Rut=16122203;
-        objPersona.Dv="8";
-        objPersona.Nombre="Miguel";
-        objPersona.Apellido_pat="Castillo";
-        objPersona.Apellido_mat="Berrios";
+        objPersona.rut="16122203-8";
+
+        objPersona.nombre="Miguel";
+        objPersona.apellidoPat="Castillo";
+        objPersona.apellidoMat="Berrios";
+        objPersona.correo="mcastillo.berrios@gmail.com";
 
                   
         //se realiza la grabación del objeto persona en la base de datos 
         session.save(objPersona);
    
+        
+        /*
         //se agrega la primera direccion 
         Direccion objDireccion=new Direccion();        
         objDireccion.calle    ="amunategui";
@@ -54,17 +57,17 @@ public class inicio {
         objDireccion2.numero   =1419;
         objDireccion2.setPersona(objPersona);
         session.save(objDireccion2);
-        
+        */
         //confirma la grabación 
         session.getTransaction().commit();
                 
         
         
-      Query qry_persona= session.createQuery("select p from Persona p left join fetch p.direcciones");   
-      List<Persona> list_personas=qry_persona.list();
+    //  Query qry_persona= session.createQuery("select p from Persona p left join fetch p.direcciones");   
+     // List<Persona> list_personas=qry_persona.list();
        
        
-
+/*
         System.out.println("PERSONAS REGISTRADAS");
        for(Persona objpersonaActual : list_personas){
        
@@ -79,7 +82,7 @@ public class inicio {
            }
           
            
-       }
+       }*/
     
     }catch(Exception error){
     
