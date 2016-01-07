@@ -6,6 +6,8 @@
 package cl.unab.erp.projectManager.util;
 
 import javax.swing.table.DefaultTableModel;
+import unab.erp.core.rrhh.model.Empleado;
+import unab.erp.core.rrhh.dao.EmpleadoDao;
 
 /**
  *
@@ -46,20 +48,46 @@ public class TableManagerUtil {
     }
 
     public static void doTableRecursos(javax.swing.JTable jTableRecursos) {
+        
+        
         String registros[] = new String[7];
         DefaultTableModel modelo = (DefaultTableModel) jTableRecursos.getModel();
         removeRowsTable(modelo);
-        for (int i = 0; i < EmpleadoUtils.empleados.size(); i++) {
-            registros[0] = EmpleadoUtils.empleados.get(i).getRut();
-            registros[1] = EmpleadoUtils.empleados.get(i).getNombres();
-            registros[2] = EmpleadoUtils.empleados.get(i).getApellidos();
-            registros[3] = EmpleadoUtils.empleados.get(i).getDireccion();
-            registros[4] = EmpleadoUtils.empleados.get(i).getEmail();
-            registros[5] = EmpleadoUtils.empleados.get(i).getFono();
-            registros[6] = EmpleadoUtils.empleados.get(i).getCargo().getNombre();
-            modelo.addRow(registros);
+        
+        
+         EmpleadoDao empleadoDao=new EmpleadoDao();
+         empleadoDao.openCurrentSession();
+       
+        
+        for(Empleado emp : empleadoDao.findAll()){
+              registros[0] = emp.getRut();
+              registros[1] = emp.getNombre();
+              registros[2] = emp.getApellidoPat()+" "+emp.getApellidoMat();
+              registros[3] = emp.getDireccion();
+              registros[4] = emp.getCorreo();
+              registros[5] = emp.getFono();
+              registros[6] = "test";
+              modelo.addRow(registros);
         }
+     
+        
+//        for (int i = 0; i < EmpleadoUtils.empleados.size(); i++) {
+//            registros[0] = EmpleadoUtils.empleados.get(i).getRut();
+//            registros[1] = EmpleadoUtils.empleados.get(i).getNombres();
+//            registros[2] = EmpleadoUtils.empleados.get(i).getApellidos();
+//            registros[3] = EmpleadoUtils.empleados.get(i).getDireccion();
+//            registros[4] = EmpleadoUtils.empleados.get(i).getEmail();
+//            registros[5] = EmpleadoUtils.empleados.get(i).getFono();
+//            registros[6] = EmpleadoUtils.empleados.get(i).getCargo().getNombre();
+//            modelo.addRow(registros);
+//        }
+        
+        
+        
         jTableRecursos.setModel(modelo);
+        
+        
+        
     }
 
     public static void removeRowsTable(DefaultTableModel model) {

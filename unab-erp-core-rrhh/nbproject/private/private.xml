@@ -3,19 +3,15 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/Users/miguelcastillo/proyecto-erp/unab-erp-core-rrhh/src/unab/erp/core/rrhh/model/DiaTrabajado.java</file>
-            <file>file:/Users/miguelcastillo/proyecto-erp/unab-erp-core-rrhh/src/unab/erp/core/rrhh/model/Usuario.java</file>
-            <file>file:/Users/miguelcastillo/proyecto-erp/unab-erp-core-rrhh/src/unab/erp/core/rrhh/model/Jornada.java</file>
-            <file>file:/Users/miguelcastillo/proyecto-erp/unab-erp-core-rrhh/src/unab/erp/core/rrhh/mapping/DiaTrabajado.hbm.xml</file>
-            <file>file:/Users/miguelcastillo/proyecto-erp/unab-erp-core-rrhh/src/unab/erp/core/rrhh/model/Liquidacion.java</file>
-            <file>file:/Users/miguelcastillo/proyecto-erp/unab-erp-core-rrhh/src/unab/erp/core/rrhh/model/Descuento.java</file>
-            <file>file:/Users/miguelcastillo/proyecto-erp/unab-erp-core-rrhh/src/unab/erp/core/rrhh/mapping/Persona.hbm.xml</file>
-            <file>file:/Users/miguelcastillo/proyecto-erp/unab-erp-core-rrhh/src/unab/erp/core/rrhh/mapping/Jornada.hbm.xml</file>
-            <file>file:/Users/miguelcastillo/proyecto-erp/unab-erp-core-rrhh/src/unab/erp/core/rrhh/model/Empleado.java</file>
             <file>file:/Users/miguelcastillo/proyecto-erp/unab-erp-core-rrhh/src/unab/erp/core/rrhh/model/Persona.java</file>
-            <file>file:/Users/miguelcastillo/proyecto-erp/unab-erp-core-rrhh/src/unab/erp/core/rrhh/model/Solicitud.java</file>
+            <file>file:/Users/miguelcastillo/proyecto-erp/unab-erp-core-rrhh/src/unab/erp/core/rrhh/dao/EmpleadoDao.java</file>
+            <file>file:/Users/miguelcastillo/proyecto-erp/unab-erp-core-rrhh/src/unab/erp/core/rrhh/mapping/Descuento.hbm.xml</file>
+            <file>file:/Users/miguelcastillo/proyecto-erp/unab-erp-core-rrhh/src/unab/erp/configuracion/HibernateUtil.java</file>
+            <file>file:/Users/miguelcastillo/proyecto-erp/unab-erp-core-rrhh/src/unab/erp/core/rrhh/model/Descuento.java</file>
             <file>file:/Users/miguelcastillo/proyecto-erp/unab-erp-core-rrhh/src/unab/erp/core/rrhh/model/Cargo.java</file>
+            <file>file:/Users/miguelcastillo/proyecto-erp/unab-erp-core-rrhh/src/unab/erp/core/rrhh/mapping/Persona.hbm.xml</file>
             <file>file:/Users/miguelcastillo/proyecto-erp/unab-erp-core-rrhh/src/unab/erp/core/rrhh/mapping/Cargo.hbm.xml</file>
+            <file>file:/Users/miguelcastillo/proyecto-erp/unab-erp-core-rrhh/src/unab/erp/core/rrhh/repository/RepositorioRRHH.java</file>
         </group>
     </open-files>
 </project-private>

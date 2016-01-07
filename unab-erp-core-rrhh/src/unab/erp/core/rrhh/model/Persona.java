@@ -25,20 +25,33 @@ public class Persona {
     public Date   fechaIngreso;
     public String correo;
     
-    /*public Set<Direccion> direcciones = new HashSet();
+    //SE AGREGAN PROPIEDADES PARA MANTENER UNIDAD CON MODULO DE PROYECTOS
+    private String direccion;
+    private String fono;
     
-    public void setDirecciones(Set<Direccion> direcciones) {
-        this.direcciones = direcciones;
-    }
 
-    public Set<Direccion> getDirecciones() {
-        return this.direcciones;
-    }*/
     
     public Persona(){
     
     }
 
+    public String getDireccion() {
+        return direccion;
+    }
+
+    public String getFono() {
+        return fono;
+    }
+
+    public void setDireccion(String direccion) {
+        this.direccion = direccion;
+    }
+
+    public void setFono(String fono) {
+        this.fono = fono;
+    }
+
+    
     public void setPersona_id(int persona_id) {
         this.persona_id = persona_id;
     }
