@@ -8,6 +8,7 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.Iterator;
 import java.util.List;
+import javax.swing.WindowConstants;
 import javax.swing.table.DefaultTableModel;
 import org.jdesktop.beansbinding.Binding;
 import org.jdesktop.beansbinding.BindingGroup;
@@ -735,16 +736,25 @@ public class AppRRHH extends javax.swing.JFrame {
 
     private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
 
-Jornada jornada=new Jornada();
-jornada.show();
+        
+        
+    Jornada jornada=new Jornada();
+    jornada.setDefaultCloseOperation(WindowConstants.DISPOSE_ON_CLOSE);
+    jornada.pack();
+    jornada.setVisible(true);
 
 // TODO add your handling code here:
     }//GEN-LAST:event_jButton6ActionPerformed
 
     private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
 
-Solicitudes solicitudes=new Solicitudes();
-solicitudes.show();
+    Solicitudes solicitudes=new Solicitudes();
+
+    solicitudes.setDefaultCloseOperation(WindowConstants.DISPOSE_ON_CLOSE);
+    solicitudes.pack();
+    solicitudes.setVisible(true);
+        
+
 // TODO add your handling code here:
     }//GEN-LAST:event_jButton5ActionPerformed
 
