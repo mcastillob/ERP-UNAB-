@@ -86,7 +86,7 @@ public class EmpleadoDao  implements RepositorioRRHH<Empleado, Integer>  {
 
             @Override
             public List<Empleado> findAll() {
-                 List<Empleado> empleados = (List<Empleado>) getCurrentSession().createQuery("from Empleado").list();
+                 List<Empleado> empleados = (List<Empleado>) getCurrentSession().createQuery("FROM Empleado e").list();
                  return empleados;
 
             }
@@ -99,6 +99,13 @@ public class EmpleadoDao  implements RepositorioRRHH<Empleado, Integer>  {
                  }
                  
                  return null;
+
+            }
+            
+                public List<Empleado>  findAllByRut(String rut) {
+                 List<Empleado> empleados = (List<Empleado>) getCurrentSession().createQuery("FROM Empleado e WHERE e.rut=:PARAM_RUT").setParameter("PARAM_RUT", rut).list();
+                 
+                 return empleados;
 
             }
 

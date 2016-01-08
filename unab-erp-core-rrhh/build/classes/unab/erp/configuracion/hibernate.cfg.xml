@@ -8,8 +8,8 @@
     <property name="hibernate.connection.username">SA</property>
     <property name="show_sql">true</property>
     <property name="connection.pool_size">1</property>
-    <!--<property name="hibernate.hbm2ddl.auto">create-drop</property>-->
-    <property name="hibernate.hbm2ddl.auto">update</property>
+    <property name="hibernate.hbm2ddl.auto">create-drop</property>
+    <!--<property name="hibernate.hbm2ddl.auto">update</property>-->
     <mapping resource="unab/erp/core/rrhh/mapping/Persona.hbm.xml"/>
     <mapping resource="unab/erp/core/rrhh/mapping/Cargo.hbm.xml"/>
     <mapping resource="unab/erp/core/rrhh/mapping/Jornada.hbm.xml"/>
