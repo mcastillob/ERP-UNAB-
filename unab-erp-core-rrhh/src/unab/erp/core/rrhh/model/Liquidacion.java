@@ -24,7 +24,18 @@ public class Liquidacion {
     public Set<Descuento>    descuentos = new HashSet();
     private Set<Solicitud>   _solicitudes;
     private Set<Jornada>     _horasTrabajadas;
+    public Empleado empleado=null;
 
+    public void setEmpleado(Empleado empleado) {
+        this.empleado = empleado;
+    }
+
+    public Empleado getEmpleado() {
+        return empleado;
+    }
+
+    
+    
     public void setLiquidacion_id(int liquidacion_id) {
         this.liquidacion_id = liquidacion_id;
     }

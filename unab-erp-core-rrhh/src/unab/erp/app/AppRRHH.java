@@ -6,14 +6,16 @@
 package unab.erp.app;
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.HashSet;
 import java.util.Iterator;
 import java.util.List;
+import java.util.Set;
 import javax.swing.WindowConstants;
 import javax.swing.table.DefaultTableModel;
 import org.jdesktop.beansbinding.Binding;
 import org.jdesktop.beansbinding.BindingGroup;
-import  unab.erp.core.rrhh.dao.EmpleadoDao;
-import  unab.erp.core.rrhh.model.Empleado;
+import  unab.erp.core.rrhh.dao.*;
+import  unab.erp.core.rrhh.model.*;
 /**
  *
  * @author miguelcastillo
@@ -73,17 +75,17 @@ public class AppRRHH extends javax.swing.JFrame {
         jLabel13 = new javax.swing.JLabel();
         jFormattedTextField2 = new javax.swing.JFormattedTextField();
         jLabel14 = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
+        jTextFieldLiqRut = new javax.swing.JTextField();
         jButton1 = new javax.swing.JButton();
         jLabel15 = new javax.swing.JLabel();
-        jTextField2 = new javax.swing.JTextField();
+        jTextFieldsueldo = new javax.swing.JTextField();
         jLabel16 = new javax.swing.JLabel();
-        jTextField3 = new javax.swing.JTextField();
-        jComboBox1 = new javax.swing.JComboBox();
+        jTextFieldDescuentos = new javax.swing.JTextField();
+        jComboBoxperiodo = new javax.swing.JComboBox();
         jLabel17 = new javax.swing.JLabel();
         jButton2 = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
+        jTableLiquidaciones = new javax.swing.JTable();
         jButton3 = new javax.swing.JButton();
         jPanel3 = new javax.swing.JPanel();
         jLabel18 = new javax.swing.JLabel();
@@ -128,7 +130,7 @@ public class AppRRHH extends javax.swing.JFrame {
 
         jFFechaNacimiento.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.DateFormatter(new java.text.SimpleDateFormat("dd/MM/yyyy"))));
 
-        jComboBoxCargo.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        jComboBoxCargo.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Gerente", "SubGerente", "Jefe de Proyecto", "Ing de Software Jr", "Ing de Software SemiSenior", "Ing de Software Senior", "Jefe Reursos Humanos" }));
 
         jLabel6.setText("Cargo");
 
@@ -310,29 +312,39 @@ public class AppRRHH extends javax.swing.JFrame {
         jLabel14.setText("Rut");
 
         jButton1.setText("Buscar");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
 
         jLabel15.setText("Sueldo Periodo");
 
         jLabel16.setText("Descuentos");
 
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "01/2016", "02/2016", "03/2016", "04/2016", "05/2016", "06/2016", "07/2016", "08/2016", "09/2016", "10/2016", "11/2016", "12/2016" }));
+        jComboBoxperiodo.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "01/2016", "02/2016", "03/2016", "04/2016", "05/2016", "06/2016", "07/2016", "08/2016", "09/2016", "10/2016", "11/2016", "12/2016" }));
 
         jLabel17.setText("Periodo");
 
         jButton2.setText("Registrar");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
 
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        jTableLiquidaciones.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null}
+                {null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null}
             },
             new String [] {
-                "Rut", "Nombre", "Cargo", "Renumeracion", "Total Descuento", "Fecha"
+                "Rut", "Nombre", "Cargo", "Renumeracion", "Total Descuento", "Fecha", "Periodo"
             }
         ));
-        jScrollPane1.setViewportView(jTable1);
+        jScrollPane1.setViewportView(jTableLiquidaciones);
 
         jButton3.setText("Imprimir");
         jButton3.addActionListener(new java.awt.event.ActionListener() {
@@ -366,7 +378,7 @@ public class AppRRHH extends javax.swing.JFrame {
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jFormattedTextField1, javax.swing.GroupLayout.DEFAULT_SIZE, 159, Short.MAX_VALUE)
                             .addComponent(jFormattedTextField2)
-                            .addComponent(jTextField1))))
+                            .addComponent(jTextFieldLiqRut))))
                 .addGap(98, 98, 98)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel15)
@@ -375,9 +387,9 @@ public class AppRRHH extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                        .addComponent(jTextField2)
-                        .addComponent(jTextField3, javax.swing.GroupLayout.DEFAULT_SIZE, 103, Short.MAX_VALUE))
-                    .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jTextFieldsueldo)
+                        .addComponent(jTextFieldDescuentos, javax.swing.GroupLayout.DEFAULT_SIZE, 103, Short.MAX_VALUE))
+                    .addComponent(jComboBoxperiodo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jButton2))
                 .addGap(331, 331, 331))
             .addGroup(jPanel2Layout.createSequentialGroup()
@@ -397,19 +409,19 @@ public class AppRRHH extends javax.swing.JFrame {
                     .addComponent(jLabel12)
                     .addComponent(jFormattedTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel15)
-                    .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jTextFieldsueldo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(jLabel13)
                     .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(jFormattedTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addComponent(jLabel16)
-                        .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(jTextFieldDescuentos, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jTextFieldLiqRut, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel14)
-                    .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jComboBoxperiodo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel17))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -631,6 +643,39 @@ public class AppRRHH extends javax.swing.JFrame {
     
     }
     
+    
+    
+       public void cargaJtableLiquidaciones(Empleado empleado){
+        
+      
+      
+        
+         String registros[] = new String[7];
+         DefaultTableModel modelo = (DefaultTableModel) jTableLiquidaciones.getModel();
+       
+
+        
+         for (int i = modelo.getRowCount() - 1; i >= 0; i--) {
+            modelo.removeRow(i);
+        }
+       
+        for (Liquidacion liq : empleado.getLiquidaciones()) {
+            registros[0] = empleado.getRut();
+            registros[1] = empleado.getNombre()+" "+empleado.getApellidoPat()+" "+empleado.getApellidoMat();
+            registros[2] = "cargo";
+            registros[3] = String.valueOf(liq.getSueldoBruto());
+            registros[4] = String.valueOf(liq.getTotalDescuneto());
+            registros[5] = String.valueOf(liq.getFechaIngreso());
+            registros[5] = String.valueOf(liq.getPeriodo());
+       
+   
+            modelo.addRow(registros);
+        }
+        jTableLiquidaciones.setModel(modelo);
+       
+
+    }
+    
     public void cargaJtable(List<Empleado> empleados){
         
       
@@ -758,6 +803,64 @@ public class AppRRHH extends javax.swing.JFrame {
 // TODO add your handling code here:
     }//GEN-LAST:event_jButton5ActionPerformed
 
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+
+    EmpleadoDao empleadoDao=new EmpleadoDao();  
+    empleadoDao.openCurrentSession();
+    empLiq=empleadoDao.findByRut(jTextFieldLiqRut.getText());
+    empleadoDao.closeCurrentSession();
+    
+    
+    
+    if(empLiq!=null){
+        
+     Set<Liquidacion> liquidaciones= empLiq.getLiquidaciones();
+        
+    Liquidacion liquidacion=new Liquidacion();
+    liquidacion.setFechaIngreso(new Date());
+    liquidacion.setPeriodo(jComboBoxperiodo.getSelectedItem().toString());
+    liquidacion.setSueldoBruto(Float.parseFloat(jTextFieldsueldo.getText()));
+    liquidacion.setTotalDescuneto(Float.parseFloat(jTextFieldDescuentos.getText()));
+    liquidacion.setEmpleado(empLiq);
+    
+    LiquidacionDao liquidacionDao=new LiquidacionDao();
+    liquidacionDao.openCurrentSessionwithTransaction();
+    liquidacionDao.save(liquidacion);
+    liquidacionDao.closeCurrentSessionwithTransaction(); 
+     
+    
+    empleadoDao.openCurrentSession();
+    empLiq=empleadoDao.findByRut(jTextFieldLiqRut.getText());
+    empleadoDao.closeCurrentSession();
+    cargaJtableLiquidaciones(empLiq);
+        
+    }
+
+
+// TODO add your handling code here:
+    }//GEN-LAST:event_jButton2ActionPerformed
+
+    private Empleado empLiq=null;
+    
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+
+    EmpleadoDao empleadoDao=new EmpleadoDao();  
+    empleadoDao.openCurrentSession();
+    empLiq=empleadoDao.findByRut(jTextFieldLiqRut.getText());
+    empleadoDao.closeCurrentSession();
+    
+    
+    
+    if(empLiq!=null){   
+     cargaJtableLiquidaciones(empLiq);
+    }
+   
+   
+    
+    
+// TODO add your handling code here:
+    }//GEN-LAST:event_jButton1ActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -807,8 +910,8 @@ public class AppRRHH extends javax.swing.JFrame {
     private javax.swing.JButton jButtonBuscar;
     private javax.swing.JButton jButtonEliminar;
     private javax.swing.JButton jButtonRegistrar;
-    private javax.swing.JComboBox jComboBox1;
     private javax.swing.JComboBox jComboBoxCargo;
+    private javax.swing.JComboBox jComboBoxperiodo;
     private javax.swing.JFormattedTextField jFFechaNacimiento;
     private javax.swing.JFormattedTextField jFHH;
     private javax.swing.JFormattedTextField jFSueldo;
@@ -844,20 +947,20 @@ public class AppRRHH extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JScrollPane jScrollPane4;
     private javax.swing.JTabbedPane jTabbedPane1;
-    private javax.swing.JTable jTable1;
     private javax.swing.JTable jTable2;
     private javax.swing.JTable jTable3;
     private javax.swing.JTable jTableEmpleados;
-    private javax.swing.JTextField jTextField1;
-    private javax.swing.JTextField jTextField2;
-    private javax.swing.JTextField jTextField3;
+    private javax.swing.JTable jTableLiquidaciones;
     private javax.swing.JTextField jTextField4;
     private javax.swing.JTextField jTextFieldApellidoMat;
     private javax.swing.JTextField jTextFieldApellidoPat;
     private javax.swing.JTextField jTextFieldCorreo;
+    private javax.swing.JTextField jTextFieldDescuentos;
     private javax.swing.JTextField jTextFieldDireccion;
+    private javax.swing.JTextField jTextFieldLiqRut;
     private javax.swing.JTextField jTextFieldNombres;
     private javax.swing.JTextField jTextFieldRut;
     private javax.swing.JTextField jTextFieldTelefono;
+    private javax.swing.JTextField jTextFieldsueldo;
     // End of variables declaration//GEN-END:variables
 }

@@ -48,6 +48,11 @@
         <key column="EMPLEADO_ID"/>
         <one-to-many  class="unab.erp.core.rrhh.model.Solicitud"/>
         </set>
+        
+         <set name="liquidaciones" table="LIQUIDACIONES" >
+        <key column="EMPLEADO_ID"/>
+        <one-to-many  class="unab.erp.core.rrhh.model.Liquidacion"/>
+        </set>
        
     </joined-subclass>
 

@@ -4,12 +4,6 @@
  * and open the template in the editor.
  */
 package unab.erp.core.rrhh.dao;
-
-/**
- *
- * @author miguelcastillo
- */
-
 import java.util.List;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
@@ -18,13 +12,14 @@ import org.hibernate.boot.registry.StandardServiceRegistryBuilder;
 import org.hibernate.cfg.Configuration;
 import unab.erp.configuracion.HibernateUtil;
 import unab.erp.core.rrhh.repository.*;
-import unab.erp.core.rrhh.model.Empleado;
-
-
-public class EmpleadoDao  implements RepositorioRRHH<Empleado, Integer>  {
+import unab.erp.core.rrhh.model.Liquidacion;
+/**
+ *
+ * @author miguelcastillo
+ */
+public class LiquidacionDao implements RepositorioRRHH<Liquidacion, Integer>  {
     
-    
-    private Session currentSession;
+     private Session currentSession;
     private Transaction currentTransaction;
 
     
@@ -66,33 +61,33 @@ public class EmpleadoDao  implements RepositorioRRHH<Empleado, Integer>  {
 
            
             @Override
-            public void update(Empleado entity) {
+            public void update(Liquidacion entity) {
                  getCurrentSession().update(entity);
 
             }
 
             @Override
-            public Empleado findById(Integer id) {
-                 Empleado empleado = (Empleado) getCurrentSession().get(Empleado.class, id);
+            public Liquidacion findById(Integer id) {
+                 Liquidacion liquidacion = (Liquidacion) getCurrentSession().get(Liquidacion.class, id);
 
-            return empleado;
+            return liquidacion;
 
             }
 
             @Override
-            public void delete(Empleado entity) {
+            public void delete(Liquidacion entity) {
                 getCurrentSession().delete(entity);
             }
 
             @Override
-            public List<Empleado> findAll() {
-                 List<Empleado> empleados = (List<Empleado>) getCurrentSession().createQuery("FROM Empleado e").list();
-                 return empleados;
+            public List<Liquidacion> findAll() {
+                 List<Liquidacion> liquidaciones = (List<Liquidacion>) getCurrentSession().createQuery("FROM Liquidacion e").list();
+                 return liquidaciones;
 
             }
             
-            public Empleado findByRut(String rut) {
-                 List<Empleado> empleados = (List<Empleado>) getCurrentSession().createQuery("FROM Empleado e LEFT JOIN FETCH e.liquidaciones WHERE e.rut=:PARAM_RUT").setParameter("PARAM_RUT", rut).list();
+            public Liquidacion findById(int id) {
+                 List<Liquidacion> empleados = (List<Liquidacion>) getCurrentSession().createQuery("FROM Empleado e WHERE e.liquidacion_id=:id").setParameter("id", id).list();
                  
                  if(empleados.size()>0){
                   return empleados.get(0);
@@ -102,18 +97,13 @@ public class EmpleadoDao  implements RepositorioRRHH<Empleado, Integer>  {
 
             }
             
-                public List<Empleado>  findAllByRut(String rut) {
-                 List<Empleado> empleados = (List<Empleado>) getCurrentSession().createQuery("FROM Empleado e WHERE e.rut=:PARAM_RUT").setParameter("PARAM_RUT", rut).list();
-                 
-                 return empleados;
-
-            }
+           
 
             @Override
             public void deleteAll() {
-                 List<Empleado> entityList = findAll();
+                 List<Liquidacion> entityList = findAll();
 
-                for (Empleado entity : entityList) {
+                for (Liquidacion entity : entityList) {
 
                     delete(entity);
 
@@ -122,8 +112,9 @@ public class EmpleadoDao  implements RepositorioRRHH<Empleado, Integer>  {
             }
 
             @Override
-            public void save(Empleado entity) {
+            public void save(Liquidacion entity) {
                 getCurrentSession().save(entity);
 
             }
+    
 }
