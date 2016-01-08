@@ -16,10 +16,12 @@
         <key column="LIQUIDACION_ID"/>
         <one-to-many  class="unab.erp.core.rrhh.model.Descuento"/>
      </set>
+     
+      <many-to-one name="empleado"  class="unab.erp.core.rrhh.model.Empleado" column="EMPLEADO_ID" />
+  
     
-
   </class>  
-    
+  
    
   
 </hibernate-mapping>
