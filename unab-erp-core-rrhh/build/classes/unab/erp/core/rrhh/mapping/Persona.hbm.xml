@@ -36,6 +36,7 @@
        <key column="EMPLEADO_ID" />
        <property    column="FECHA_INGRESO"        name="fechaIngreso"        type="java.util.Date"/>
        <property    column="HH_CONTRATADAS"       name="hhContratadas"       type="integer"/>
+       <property    column="SUELDO"               name="sueldo"              type="float"/>
        <many-to-one name="cargo" class="unab.erp.core.rrhh.model.Cargo" column="CARGO_ID" unique="true"/>
      
         <set name="horasSolicitadas" table="JORNADAS" >

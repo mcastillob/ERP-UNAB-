@@ -23,8 +23,10 @@ import cl.unab.erp.projectManager.util.ProyectoUtils;
 import cl.unab.erp.projectManager.util.TableManagerUtil;
 import javax.swing.JFileChooser;
 import javax.swing.JOptionPane;
+import javax.swing.WindowConstants;
 import unab.erp.core.rrhh.model.Empleado;
 import unab.erp.core.rrhh.dao.EmpleadoDao;
+import unab.erp.app.AppRRHH;
 
 
 /**
@@ -100,6 +102,9 @@ jButtonPDFProject.setEnabled(false);
         jTabPrincipal.setEnabled(false);
         jTabPrincipal.setVisible(false);
         jMenuCerrarSesion.setVisible(false);
+        jMenuItemHHRR.setVisible(false);
+        
+        
 
     }
 
@@ -252,6 +257,7 @@ jButtonPDFProject.setEnabled(false);
         jMenu1 = new javax.swing.JMenu();
         jMenuInitSesion = new javax.swing.JMenuItem();
         jMenuCerrarSesion = new javax.swing.JMenuItem();
+        jMenuItemHHRR = new javax.swing.JMenuItem();
         jMenuSalir = new javax.swing.JMenuItem();
         jMenu2 = new javax.swing.JMenu();
         jMenu3 = new javax.swing.JMenu();
@@ -802,6 +808,14 @@ jButtonPDFProject.setEnabled(false);
         });
         jMenu1.add(jMenuCerrarSesion);
 
+        jMenuItemHHRR.setText("RRHH");
+        jMenuItemHHRR.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItemHHRRActionPerformed(evt);
+            }
+        });
+        jMenu1.add(jMenuItemHHRR);
+
         jMenuSalir.setText("Salir");
         jMenuSalir.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -1191,6 +1205,16 @@ jButtonPDFProject.setEnabled(false);
       System.out.println("No Selection ");
       }
     }//GEN-LAST:event_jButtonPDFProjectActionPerformed
+
+    private void jMenuItemHHRRActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItemHHRRActionPerformed
+
+    AppRRHH appRRHH = new AppRRHH();
+    appRRHH.setDefaultCloseOperation(WindowConstants.DISPOSE_ON_CLOSE);
+    appRRHH.pack();
+    appRRHH.setVisible(true);
+ 
+// TODO add your handling code here:
+    }//GEN-LAST:event_jMenuItemHHRRActionPerformed
     private boolean validateFieldProject() {
         return !(jTextNombreProject.getText().equals("") || jTextInicioProject.getText().equals("") || jTextTerminoProject.getText().equals("") || jTextJefeProyectoClienteProject.getText().equals(""));
     }
@@ -1304,6 +1328,7 @@ jButtonPDFProject.setEnabled(false);
     private javax.swing.JMenuBar jMenuBarInitSesion;
     public static javax.swing.JMenuItem jMenuCerrarSesion;
     public static javax.swing.JMenuItem jMenuInitSesion;
+    public static javax.swing.JMenuItem jMenuItemHHRR;
     private javax.swing.JMenuItem jMenuSalir;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;

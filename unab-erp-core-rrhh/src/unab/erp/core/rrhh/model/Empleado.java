@@ -18,8 +18,10 @@ public class Empleado extends Persona{
        
         public Date  fechaIngreso;
         public int   hhContratadas;
+        public float sueldo;
         public Cargo cargo;
 
+        
   
         public Set<Solicitud>     solicitudes = new HashSet();
         public Set<Liquidacion> liquidaciones = new HashSet();
@@ -32,12 +34,16 @@ public class Empleado extends Persona{
     public Set<Solicitud> getSolicitudes() {
         return solicitudes;
     }
-        
-        
-        
-        
-        
 
+    public void setSueldo(float sueldo) {
+        this.sueldo = sueldo;
+    }
+
+    public float getSueldo() {
+        return sueldo;
+    }
+        
+        
     public void setCargo(Cargo cargo) {
         this.cargo = cargo;
     }

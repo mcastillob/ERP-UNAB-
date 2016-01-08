@@ -34,6 +34,17 @@
                 <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="9"/>
               </AuxValues>
             </MenuItem>
+            <MenuItem class="javax.swing.JMenuItem" name="jMenuItemHHRR">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="RRHH"/>
+              </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jMenuItemHHRRActionPerformed"/>
+              </Events>
+              <AuxValues>
+                <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="9"/>
+              </AuxValues>
+            </MenuItem>
             <MenuItem class="javax.swing.JMenuItem" name="jMenuSalir">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Salir"/>

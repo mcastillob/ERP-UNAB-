@@ -110,6 +110,7 @@ public class Login extends javax.swing.JInternalFrame {
             Index.jTabPrincipal.setEnabled(true);
             Index.jTabPrincipal.setVisible(true);
             Index.jMenuCerrarSesion.setVisible(true);
+            Index.jMenuItemHHRR.setVisible(true);
             Index.jMenuInitSesion.setVisible(false);
         }else{
          JOptionPane.showMessageDialog(rootPane, "Credenciales incorrectas");
