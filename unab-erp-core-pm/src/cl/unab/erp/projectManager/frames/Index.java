@@ -1022,6 +1022,7 @@ jButtonPDFProject.setEnabled(false);
 
     private void jMenuSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuSalirActionPerformed
         this.dispose();
+        System.exit(-1);
     }//GEN-LAST:event_jMenuSalirActionPerformed
 
     private void jMenuCerrarSesionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuCerrarSesionActionPerformed
